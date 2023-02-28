@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
-type Props = {
-    loggedInUser: string | null;
-    onLogOut: ()=>void;
-}
+// import { AuthContext } from '../../context/auth.context';
+import { useAuth } from '../../hooks/auth.hook';
 
-export const Navigation = (props: Props) => {
-    const { loggedInUser, onLogOut } = props;
+
+
+export const Navigation = () => {
+    // const {loggedInUser,onLogOut} = useContext(AuthContext);
+    const {loggedInUser,onLogOut} = useAuth();
     return (
         <nav>
             {!loggedInUser &&
